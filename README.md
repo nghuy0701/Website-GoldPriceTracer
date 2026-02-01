@@ -49,7 +49,11 @@ Clone dự án
  git clone 
 ```
 
+Link github GoldPriceTracker
 
+```
+https://github.com/nghuy0701/Website-GoldPriceTracer.git
+```
 
 Cài đặt dependencies
 
@@ -68,12 +72,19 @@ Truy cập ứng dụng
 ```bash
  http://localhost:3000
 ```
+
 Test gửi mail báo giá (hằng ngày)
+
+```
 $pair = "GoldTracker:GoldInTPHCM!"
 $basic = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes($pair))
 Invoke-WebRequest http://localhost:3000/send-mail -Headers @{ Authorization = "basic $basic" } -UseBasicParsing
+```
 
 Test gửi mail cảnh báo vượt ngưỡng
+
+```
 $pair = "GoldTracker:GoldInTPHCM!"
 $basic = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes($pair))
 Invoke-WebRequest http://localhost:3000/alert-test -Headers @{ Authorization = "basic $basic" } -UseBasicParsing
+```
