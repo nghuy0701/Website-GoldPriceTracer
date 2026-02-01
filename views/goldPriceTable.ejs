@@ -1,0 +1,92 @@
+<div class="container mt-4 mb-5">
+  <div class="text-center">
+    <h4 class="email-form-title" data-i18n="alert_title">Cập nhật ngưỡng cảnh báo</h4>
+    <p id="email-form-pera" data-i18n="alert_desc">
+      Nhập email đã đăng ký và đặt ngưỡng Min/Max để nhận cảnh báo khi giá vượt mức.
+    </p>
+  </div>
+  <form class="email-form validated-form" action="/alert-settings" method="post">
+    <div class="mb-2">
+      <label for="AlertEmail" class="form-label" data-i18n="alert_email">Địa chỉ email</label>
+      <input
+        type="email"
+        class="form-control form-control-sm"
+        id="AlertEmail"
+        name="email"
+        required
+      />
+    </div>
+    <div class="row g-2 mt-2">
+      <div class="col-md-6">
+        <label for="AlertMinUpdate" class="form-label" data-i18n="alert_min">Ngưỡng tối thiểu (VND)</label>
+          <input
+            type="number"
+            class="form-control form-control-sm"
+            id="AlertMinUpdate"
+            name="alertMin"
+            placeholder="VD: 168000000"
+            data-i18n-placeholder="alert_min_ph"
+            min="0"
+          />
+      </div>
+      <div class="col-md-6">
+        <label for="AlertMaxUpdate" class="form-label" data-i18n="alert_max">Ngưỡng tối đa (VND)</label>
+          <input
+            type="number"
+            class="form-control form-control-sm"
+            id="AlertMaxUpdate"
+            name="alertMax"
+            placeholder="VD: 175000000"
+            data-i18n-placeholder="alert_max_ph"
+            min="0"
+          />
+      </div>
+    </div>
+    <div class="mt-2">
+      <label for="AlertFieldUpdate" class="form-label" data-i18n="alert_field">Theo dõi theo giá</label>
+      <select class="form-select form-select-sm" id="AlertFieldUpdate" name="alertField">
+        <option value="sell" selected data-i18n="alert_sell">Giá bán</option>
+        <option value="buy" data-i18n="alert_buy">Giá mua</option>
+        <option value="both" data-i18n="alert_both">Cả mua và bán</option>
+      </select>
+    </div>
+    <div class="text-center mt-3">
+      <button type="submit" class="btn btn-outline-dark email-btn mx-auto" data-i18n="alert_btn">
+        Cập nhật ngưỡng
+      </button>
+    </div>
+  </form>
+</div>
+
+<% if (!(typeof noData !== 'undefined' && noData)) { %>
+<h4 class="gold-rate-table-title text-center mt-3" data-i18n="history_title">
+  Giá vàng TP.HCM trong 10 ngày gần nhất
+</h4>
+<div class="row pg-section no-gutters">
+  <div class="col-lg-12 col-md-12 col-xs-12">
+    <div class="table-responsive dark-mode-container text-center mt-3">
+      <table
+        class="table table-bordered gold-rate-table text-white"
+        id="gold-rate-table"
+      >
+        <thead>
+          <tr>
+            <th data-i18n="col_date">Ngày</th>
+            <th data-i18n="col_buy">Mua vào (VND/lượng)</th>
+            <th data-i18n="col_sell">Bán ra (VND/lượng)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for (var i = data.length - 1; i >= 0; i--) { %>
+          <tr>
+            <td><%= data[i].priceArray[0] %></td>
+            <td><%= data[i].priceArray[1] %></td>
+            <td><%= data[i].priceArray[2] %></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<% } %>

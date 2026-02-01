@@ -1,0 +1,36 @@
+<div class="container mt-5 mb-5">
+  <div class="text-center">
+    <h4 class="email-form-title" id="signupForm" data-i18n="signup_title">
+      Đăng ký nhận cập nhật giá vàng
+    </h4>
+  </div>
+  <div class="text-center">
+    <p id="email-form-pera" data-i18n="signup_desc">
+      Nhận cập nhật giá vàng mỗi ngày qua email, bao gồm giá hôm nay và lịch sử
+      10 ngày gần nhất
+    </p>
+  </div>
+  <form class="email-form validated-form" action="/signup" method="post">
+    <div class="mb-2">
+      <label for="InputEmail1" class="form-label" data-i18n="email_label">
+        Địa chỉ email
+      </label>
+      <input
+        type="email"
+        class="form-control form-control-sm"
+        id="InputEmail1"
+        aria-describedby="emailHelp"
+        name="email"
+        required
+      />
+    </div>
+    <div>
+      <p id="form-label" data-i18n="email_hint">Vui lòng nhập email hợp lệ</p>
+    </div>
+    <div class="text-center mt-1">
+      <button type="submit" class="btn btn-outline-dark email-btn mx-auto" data-i18n="signup_btn">
+        Đăng ký
+      </button>
+    </div>
+  </form>
+</div>
