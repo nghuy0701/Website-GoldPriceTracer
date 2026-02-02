@@ -1,7 +1,7 @@
 # Gold Price Tracker
 
 
-Dự án giúp đơn giản hóa việc theo dõi **giá vàng hằng ngày**, tự động cập nhật và **gửi email mỗi ngày** với thông tin giá vàng mới nhất.
+Dự án giúp đơn giản hóa việc theo dõi **giá vàng hằng ngày** và gửi mail **cảnh báo nếu giá vàng vượt ngưỡng** mà mình đặt ra, tự động cập nhật và **gửi email mỗi ngày** với thông tin giá vàng mới nhất.
 
 
 
